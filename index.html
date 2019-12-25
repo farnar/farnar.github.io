@@ -5,110 +5,67 @@
 <h1 align="center">Hi!</h1>
 <p align="center">Welcome</p>
 <h2>My shots from dribbble</h2>
-<ul id="dribbbleShots"></ul>
+<div id="shots"></div>
 <style type="text/css">
-	/* Dribble shots on website */
-
- #dribbbleShots {
-    box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -.5rem;
-    margin-left: -.5rem;
+	@import url("https://fonts.googleapis.com/css?family=Rubik");
+html,
+body {
+  padding: 2rem;
+  margin: 0;
+  background: whitesmoke;
+  font-family: "Rubik";
+  font-size: 15px;
 }
 
-#dribbbleShots li {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-preferred-size: 0;
-    box-sizing: border-box;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    padding-right: .5rem;
-    padding-left: .5rem;
-    flex-basis: 30.333333%;
-    max-width: 30.333333%;
-    position: relative;
-    height: 300px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    transition: all cubic-bezier(0.31, 0.48, 0.53, 0.83) 0.3s;
-    overflow: hidden;
+#shots {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1080px;
+  margin: auto;
+}
+#shots .shot {
+  position: relative;
+  display: block;
+  width: 25%;
+  background: #ea4c89;
+  color: white;
+  text-decoration: none;
+}
+@media only screen and (max-width: 779px) {
+  #shots .shot {
+    width: 50%;
+  }
+}
+#shots .shot:hover img {
+  opacity: .1;
+}
+#shots .shot:hover .title {
+  opacity: 1;
+}
+#shots .shot .title {
+  position: absolute;
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+#shots .shot img {
+  display: block;
+  max-width: 100%;
+  transition: opacity .2s ease-in-out;
 }
 
-#dribbbleShots li:before {
-    position: absolute;
-    content: "";
-    width: 1000px;
-    height: 1000px;
-    background: rgba(33, 43, 185, 0.93);
-    top: 0;
-    left: 0;
-    transition: all cubic-bezier(0.31, 0.48, 0.53, 0.83) 0.5s;
-    opacity: 0;
-    transform: translate(-46%, -111%) rotate(60deg);
-}
-
-#dribbbleShots li img{
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    height: 100%;
-}
-
-#dribbbleShots .title{
-    position: absolute;
-    bottom: 25px;
-    left: 30px;
-    font-size: 25px;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    color: #fff;
-    transition: all cubic-bezier(0.31, 0.48, 0.53, 0.83) 0.3s;
-    transform: translateY(30px);
-    opacity: 0;
-    width: 70%;
-    line-height: normal;
-}
-
-#dribbbleShots li:hover{
-    box-shadow: 0px 9px 30px rgba(0, 0, 0, 0.21);
-    transform: scale(1.02);
-    transition: all cubic-bezier(0.31, 0.48, 0.53, 0.83) 0.3s;
-}
-
-#dribbbleShots li:hover .title{
-    transition: all cubic-bezier(0.31, 0.48, 0.53, 0.83) 0.3s;
-    transform: translateY(0px);
-    opacity: 1;
-}
-
-#dribbbleShots li:hover:before{
-    opacity: 1;
-    transform: translate(-35%, -43%) rotate(60deg);
-    transition: all cubic-bezier(0.31, 0.48, 0.53, 0.83) 0.5s;
-}
 </style>
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-<style type="text/css">
-	
-var accessToken = "63a4257ae12d23d30e4d7fe77e01bb65439ea2c999eec6b488be34fe12455edd"
+<script type="text/javascript">
+	// Set the Access Token
+var accessToken = '63a4257ae12d23d30e4d7fe77e01bb65439ea2c999eec6b488be34fe12455edd';
 
 // Call Dribble v2 API
 $.ajax({
@@ -118,16 +75,32 @@ $.ajax({
     success: function(data) {  
       if (data.length > 0) { 
         $.each(data.reverse(), function(i, val) {                
-          $('#dribbbleShots').prepend(
+          $('#shots').prepend(
             '<a class="shot" target="_blank" href="'+ val.html_url +'" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="'+ val.images.hidpi +'"/></a>'
             )
         })
       }
       else {
-        $('#dribbbleShots').append('<p>No shots yet!</p>');
+        $('#shots').append('<p>No shots yet!</p>');
       }
     }
 });
-</style>
+
+
+// API Variables
+
+//Image width 800x600 (Animated)
+  // val.images.hidpi 
+//Image width 400x300
+  // val.images.normal
+//Image width 200x150
+  // val.images.teaser
+//Title
+  // val.title
+//Description
+  // val.description
+//URL
+  // val.html_url
+</script>
 </body>
 </html>
