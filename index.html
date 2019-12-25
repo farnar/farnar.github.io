@@ -4,6 +4,7 @@
 	<div align="center" style="padding: 111px 0 60px"><img src="logo-nurulaminrussel.svg" width="64"></div>
 <h1 align="center">Hi!</h1>
 <p align="center">Welcome</p>
+<h2>My shots from dribbble</h2>
 <ul id="dribbbleShots"></ul>
 <style type="text/css">
 	/* Dribble shots on website */
@@ -106,7 +107,7 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <style type="text/css">
-	// Set the Access Token
+	
 var accessToken = "63a4257ae12d23d30e4d7fe77e01bb65439ea2c999eec6b488be34fe12455edd"
 
 // Call Dribble v2 API
@@ -118,12 +119,12 @@ $.ajax({
       if (data.length > 0) { 
         $.each(data.reverse(), function(i, val) {                
           $('#dribbbleShots').prepend(
-            '<li class="shot" target="_blank" href="'+ val.html_url +'" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="'+ val.images.hidpi +'"/></li>'
+            '<a class="shot" target="_blank" href="'+ val.html_url +'" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="'+ val.images.hidpi +'"/></a>'
             )
         })
       }
       else {
-        $('#dribbbleShots').append('<p>Sorry, No shots yet</p>');
+        $('#dribbbleShots').append('<p>No shots yet!</p>');
       }
     }
 });
