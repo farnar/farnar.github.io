@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html>
+<title>nurul amin russel - graphic designer, UI/UX designer and front-end developer </title>
+<link rel="apple-touch-icon" sizes="57x57" href="./apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="./apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="./apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="./apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="./apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="./android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="./ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 <body>
-	<div align="center" style="padding: 111px 0 60px"><img src="logo-nurulaminrussel.svg" width="64"></div>
-<h1 align="center">Hi!</h1>
-<p align="center">Welcome</p>
-<h2>My shots from dribbble</h2>
+	<div align="center" style="padding: 60px 0 90px"><img src="logo-nurulaminrussel.svg" width="111"></div>
+	<!-- <div style="display: flex; flex-wrap: wrap;">
+		<div style="flex-grow:6; width: 75%"><h1 align="center">Hi!</h1>
+<p align="center">Welcome</p></div>
+<div style="flex-grow:1; width: 25%"><img src="nurulaminrussel.jpg" width="100%"></div>
+	</div> -->
+<div style="min-height: 300px; background: #ededed; color: #666; display: flex; flex-direction: column; justify-content: center; align-items: center;"><h1 style="font-size: 64px; margin: 30px 0 0">Hi!</h1>
+<h2 align="center" style="font-size: 44px; margin-top: 0">I am Nurul Amin Russel. I'm a graphic designer based in Dhaka, Bangladesh. Working as the senior UI/UX designer and front-end developer at <a href="https://www.ivivelabs.com/" target="_blank" style="text-decoration: none;">iViveLabs</a>.</h2></div>
+<h3 align="center" style="margin-top: 60px; font-size: 22px; letter-spacing: 3px; opacity: .7">My shots from dribbble</h3>
 <div id="shots"></div>
+<hr>
+Find me on <a href="https://twitter.com/nurulamin">Twitter</a>,  <a href="https://www.linkedin.com/in/nurulamin/">Linkedin</a>.
 <style type="text/css">
-	@import url("https://fonts.googleapis.com/css?family=Rubik");
+	@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
 html,
 body {
   padding: 2rem;
   margin: 0;
   background: whitesmoke;
-  font-family: "Rubik";
+  font-family: "Roboto";
+  font-weight: 300;
   font-size: 15px;
 }
-
+h1, h2{ font-weight: 100 }
+h3{ font-weight: 300 }
 #shots {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1080px;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
   margin: auto;
 }
 #shots .shot {
   position: relative;
   display: block;
-  width: 25%;
-  background: #ea4c89;
-  color: white;
+  width: 400px;
+  margin:2%;
+  color: black;
   text-decoration: none;
+  box-shadow: 0 0 33px rgba(0,0,0,.05)
 }
 @media only screen and (max-width: 779px) {
   #shots .shot {
@@ -69,14 +99,14 @@ var accessToken = '63a4257ae12d23d30e4d7fe77e01bb65439ea2c999eec6b488be34fe12455
 
 // Call Dribble v2 API
 $.ajax({
-    url: 'https://api.dribbble.com/v2/user/shots?access_token='+accessToken,
+    url: 'https://api.dribbble.com/v2/user/shots?per_page=9&access_token='+accessToken,
     dataType: 'json',
     type: 'GET',
     success: function(data) {  
       if (data.length > 0) { 
         $.each(data.reverse(), function(i, val) {                
           $('#shots').prepend(
-            '<a class="shot" target="_blank" href="'+ val.html_url +'" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="'+ val.images.hidpi +'"/></a>'
+            '<a class="shot" target="_blank" href="'+ val.html_url +'" title="' + val.title + '"><div class="title">' + val.title + '</div><img src="'+ val.images.normal +'"/></a>'
             )
         })
       }
