@@ -47,7 +47,7 @@ var gallery;
 
 function loadImages(page, callback) {
   console.log('loadImages page: '+page);
-  var url = 'https://flickr.com/services/rest/?method=flickr.photos.getPopular&api_key=' + apiKey + '&user_id=' + authorId + '&per_page=' + perPage + '&page=' + page + '&format=json&nojsoncallback=1';
+  var url = 'https://api.flickr.com/services/rest/?method=flickr.photos.getPopular&api_key=' + apiKey + '&user_id=' + authorId + '&per_page=' + perPage + '&page=' + page + '&format=json&nojsoncallback=1';
   $.getJSON(url, function(response) {
     if (response.stat === 'ok') {
       (function loadEachImg(arrPhotos, index) {
@@ -101,5 +101,6 @@ $(document).scroll(function() {
     });
   }
 });
+
 
 </script>
