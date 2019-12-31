@@ -1,5 +1,13 @@
-<div id='container'>
-<div>
+<!DOCTYPE html>
+<html>
+<head>
+<title>nurul amin russel - graphic designer, UI/UX designer and front-end developer </title>
+</head>
+<body>
+  <div align="center" style="padding: 60px 0 90px"><a href="index.html"><img src="logo-nurulaminrussel.svg" width="144"></a></div>
+<div id='container'></div>
+<hr>
+Find me on <a href="https://twitter.com/nurulamin">Twitter</a>,  <a href="https://www.linkedin.com/in/nurulamin/">Linkedin</a>. 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.21/css/lightgallery.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.21/js/lightgallery.min.js"></script>
@@ -55,7 +63,7 @@ function loadImages(page, callback) {
           var photo = arrPhotos[index];
           
           var link = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
-          var $newElem = $('<a href="https://www.flickr.com/photos/farnar/'+photo.id+'"><img class="grid-item " src=' + link + ' style="display: none"></a>');
+          var $newElem = $('<a href="https://www.flickr.com/photos/farnar/'+photo.id+'" target="_blank"><img class="grid-item " src=' + link + ' style="display: none"></a>');
           $container.append($newElem);
           // ensure that new image loaded before adding to masonry layout
           $newElem.imagesLoaded(function(){
@@ -115,3 +123,7 @@ $(document).scroll(function() {
 
   gtag('config', 'UA-155013425-1');
 </script>
+
+
+</body>
+</html>
