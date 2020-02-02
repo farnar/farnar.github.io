@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>nurul amin russel - graphic designer, UI/UX designer and front-end developer </title>
-</head>
-<body>
-  <div align="center" style="padding: 60px 0 90px"><a href="index.html"><img src="logo-nurulaminrussel.svg" width="144"></a></div>
-<div id='container'></div>
-<hr>
-Find me on <a href="https://twitter.com/nurulamin">Twitter</a>,  <a href="https://www.linkedin.com/in/nurulamin/">Linkedin</a>. 
+<?php include 'header.php'; ?>
+
+<div id='pic-container'></div>
+
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.21/css/lightgallery.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.21/js/lightgallery.min.js"></script>
@@ -42,7 +36,7 @@ Find me on <a href="https://twitter.com/nurulamin">Twitter</a>,  <a href="https:
     startPage = 0;
 
 // Main content container
-var $container = $('#container');
+var $container = $('#pic-container');
 
 // Masonry 
 $container.masonry({
@@ -114,7 +108,13 @@ $(document).scroll(function() {
 
 </script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<div class="container">
+  <div class="pt-4 pb-4"> <hr>
+Find me on <a href="https://twitter.com/nurulamin">Twitter</a>,  <a href="https://www.linkedin.com/in/nurulamin/">Linkedin</a>. <a href="photography.php">Check out my photography</a>
+</div>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155013425-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
